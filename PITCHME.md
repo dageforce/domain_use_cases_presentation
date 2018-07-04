@@ -14,20 +14,19 @@
 #### Basics of the UseCase
 
 @size[0.4em](Some of the things we would like to accomplish with our `UseCase` class:)
-- @size[0.4em](Need to encapsulate and orchestrate our Business Logic)
-- @size[0.4em](Single, specific interactions with data - Single responsibility Principle -)
-- @size[0.4em](Simplify asynchronous processes by worrying about the threading details for us -observers and subscribers-)
-- @size[0.4em](Allow us the ability to chain/combine multiple of these interactors/usecases where necessary -this is also sometimes known as a `Workflow`-)
-- @size[0.4em](Clearly indicate the intended outcome of the UseCase - will there be a multiple outcomes -Flowable/Observable-, a single outcome -Single- or we simply want to know if the action was completed or not -Completable-)
-- @size[0.4em](Additional nice to have - Ability to validate that our UseCases are acting on the correct threads especially when we start chaining them)
-)
+@size[0.4em](- Need to encapsulate and orchestrate our Business Logic)
+@size[0.4em](- Single, specific interactions with data - Single responsibility Principle -)
+@size[0.4em](- Simplify asynchronous processes by worrying about the threading details for us -observers and subscribers-)
+@size[0.4em](- Allow us the ability to chain/combine multiple of these interactors/usecases where necessary -this is also sometimes known as a `Workflow`-)
+@size[0.4em](- Clearly indicate the intended outcome of the UseCase - will there be a multiple outcomes -Flowable/Observable-, a single outcome -Single- or we simply want to know if the action was completed or not -Completable-)
+@size[0.4em](- Additional nice to have - Ability to validate that our UseCases are acting on the correct threads especially when we start chaining them)
+
 +++
 
 @size[0.4em](This means in the end we create 3 different types of `UseCases`:)
-- @size[0.4em](SingleUseCase)
-- @size[0.4em](CompletableUseCase)
-- @size[0.4em](Flowable/ObservableUseCase)
-)
+@size[0.4em]( - SingleUseCase)
+@size[0.4em]( - CompletableUseCase)
+@size[0.4em]( - Flowable/ObservableUseCase)
 
 ---
 
@@ -138,10 +137,10 @@ abstract class FlowableParameterisedUseCase<out T, in P> : UseCase() {
 
 #### Example implementation
 @size[0.4em](Imagine the following scenario:)
-- @size[0.4em](We have a Packaging company)
-- @size[0.4em](In order for us to send a package we need to do 2 things)
-  - @size[0.4em](We need to get the shipping information of the company we are sending to via a companyId)
-  - @size[0.4em](We need to update our records with that address and mark the package as ReadyToSend)
+@size[0.4em](- We have a Packaging company)
+@size[0.4em](- In order for us to send a package we need to do 2 things)
+@size[0.4em](   - We need to get the shipping information of the company we are sending to via a companyId)
+@size[0.4em](   - We need to update our records with that address and mark the package as ReadyToSend)
 )
 +++
 
