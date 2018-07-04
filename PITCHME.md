@@ -1,4 +1,4 @@
-# Clean Architecute, Usecases, RxJava/rxKotlin and how to combine all of it into something awesome!
+# Cool Clean Architecute Usecases!
 
 ### Introduction
 
