@@ -45,7 +45,7 @@ abstract class UseCase {
     ...
 }
 ```
-@[1] (Main purpose of this class is to allow us to attach any transformers on our observable that we are interested in. 
+@[1] (Main purpose of this class is to allow us to attach any transformers on our observable that we are interested in.)
 @[2-3] (In most cases this wll be the threads to observe/schedule on and possibly a transformer for debugging the observables)
 ---
 
@@ -167,4 +167,4 @@ class PrepareShipPackageToCompanyUseCase @Inject internal constructor(private va
 ---
 
 #### Summary
-@size[0.5em](Of course in the real world there is a lot of ways this can be used and adapted for your needs. Thanks for reading. Hope you enjoyed it.)
+@size[0.5em](Of course in the real world there is a lot of ways this can be used and adapted for your needs. I really like the seperation of concern that this provides and how much simpler it makes using observables everywhere else in the app. Thanks for reading. Hope you enjoyed it.)
