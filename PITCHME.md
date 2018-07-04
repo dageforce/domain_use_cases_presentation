@@ -1,4 +1,4 @@
-# Cool Clean Architecute Usecases!
+# Cool Clean Architecture Usecases!
 
 ---
 
