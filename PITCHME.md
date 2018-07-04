@@ -1,30 +1,26 @@
-theme : night
-
 # Cool Clean Architecute Usecases!
 
 ---
 
 ### Introduction
 
-@size[0.6em](
-A lot of the projects that we develop for Android make use of the architecture defined in this awesome article by [Fernando Cejas](https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/)
+@size[0.4em](A lot of the projects that we develop for Android make use of the architecture defined in this awesome article by [Fernando Cejas](https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/))
 
-He recently also wrote an updated arcticle demostrating using some of the newer components such as Kotlin Coroutines instead of RxJava/RxKotlin [here](https://fernandocejas.com/2018/05/07/architecting-android-reloaded/)
+@size[0.4em](He recently also wrote an updated arcticle demostrating using some of the newer components such as Kotlin Coroutines instead of RxJava/RxKotlin [here](https://fernandocejas.com/2018/05/07/architecting-android-reloaded/))
 
-This article will discuss the `UseCase` section and changes we introduced to it to improve our interaction with it using RxKotlin/RxJava
-)
+@size[0.4em](This article will discuss the `UseCase` section and changes we introduced to it to improve our interaction with it using RxKotlin/RxJava)
 ---
 
 ### Basics of the UseCase
 
-@size[0.6em](
-Some of the things we would like to accomplish with our `UseCase` class:
-- Need to encapsulate and orchestrate our Business Logic 
-- Single, specific interactions with data (Single responsibility Principle)
-- Simplify asynchronous processes by worrying about the threading details for us (observers and subscribers)
-- Allow us the ability to chain/combine multiple of these interactors/usecases where necessary (this is also sometimes known as a `Workflow`)
-- Clearly indicate the intented outcome of the UseCase - will there be a multiple outcomes (Flowable/Observable), a single outcome (Single) or we simply want to know if the action was completed or not (Completable)
-- Additional nice to have - Ability to validate that our UseCases are acting on the correct threads (especially when we start chaining them)
+
+@size[0.4em](Some of the things we would like to accomplish with our `UseCase` class:)
+- @size[0.4em](Need to encapsulate and orchestrate our Business Logic)
+- @size[0.4em](Single, specific interactions with data (Single responsibility Principle))
+- @size[0.4em](Simplify asynchronous processes by worrying about the threading details for us (observers and subscribers))
+- @size[0.4em](Allow us the ability to chain/combine multiple of these interactors/usecases where necessary (this is also sometimes known as a `Workflow`))
+- @size[0.4em](Clearly indicate the intented outcome of the UseCase - will there be a multiple outcomes (Flowable/Observable), a single outcome (Single) or we simply want to know if the action was completed or not (Completable))
+- @size[0.4em](Additional nice to have - Ability to validate that our UseCases are acting on the correct threads (especially when we start chaining them))
 )
 +++
 
