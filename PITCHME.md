@@ -85,9 +85,9 @@ abstract class SingleUseCase<out T> : UseCase() {
     }
 }
 ```
-@[3] (Build is what we would override to define our business logic)
-@[10] (get ensures we add the transformers to the call that we are interested in)
-@[14] (chain allows us to ignore the transformers and only apply them when the UseCase that uses this finally calls get())
+@[7] (Build is what we would override to define our business logic)
+@[14] (get ensures we add the transformers to the call that we are interested in)
+@[18] (chain allows us to ignore the transformers and only apply them when the UseCase that uses this finally calls get())
 ---
 
 #### The Observable/Flowable UseCase
