@@ -4,29 +4,30 @@
 
 #### Introduction
 
-@size[0.4em](A lot of the projects that we develop for Android make use of the architecture defined in this awesome article by [Fernando Cejas](https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/))
+@size[0.5em](A lot of the projects that we develop for Android make use of the architecture defined in this awesome article by [Fernando Cejas](https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/))
 
-@size[0.4em](He recently also wrote an updated arcticle demostrating using some of the newer components such as Kotlin Coroutines instead of RxJava/RxKotlin [here](https://fernandocejas.com/2018/05/07/architecting-android-reloaded/))
+@size[0.5em](He recently also wrote an updated arcticle demostrating using some of the newer components such as Kotlin Coroutines instead of RxJava/RxKotlin [here](https://fernandocejas.com/2018/05/07/architecting-android-reloaded/))
 
-@size[0.4em](This article will discuss the `UseCase` section and changes we introduced to it to improve our interaction with it using RxKotlin/RxJava)
+@size[0.5em](This article will discuss the `UseCase` section and changes we introduced to it to improve our interaction with it using RxKotlin/RxJava)
 ---
 
 #### Basics of the UseCase
 
-@size[0.4em](Some of the things we would like to accomplish with our `UseCase` class:)
-@size[0.4em](- Need to encapsulate and orchestrate our Business Logic)
-@size[0.4em](- Single, specific interactions with data - Single responsibility Principle -)
-@size[0.4em](- Simplify asynchronous processes by worrying about the threading details for us -observers and subscribers-)
-@size[0.4em](- Allow us the ability to chain/combine multiple of these interactors/usecases where necessary -this is also sometimes known as a `Workflow`-)
-@size[0.4em](- Clearly indicate the intended outcome of the UseCase - will there be a multiple outcomes -Flowable/Observable-, a single outcome -Single- or we simply want to know if the action was completed or not -Completable-)
-@size[0.4em](- Additional nice to have - Ability to validate that our UseCases are acting on the correct threads especially when we start chaining them)
+@size[0.5em](Some of the things we would like to accomplish with our `UseCase` class:)
+- @size[0.5em](Need to encapsulate and orchestrate our Business Logic)
+- @size[0.5em](Single, specific interactions with data - Single responsibility Principle -)
+- @size[0.5em](Simplify asynchronous processes by worrying about the threading details for us -observers and subscribers-)
+- @size[0.5em](Allow us the ability to chain/combine multiple of these interactors/usecases where necessary -this is also sometimes known as a `Workflow`-)
+- @size[0.5em](Clearly indicate the intended outcome of the UseCase - will there be a multiple outcomes -Flowable/Observable-, a single outcome -Single- or we simply want to know if the action was completed or not -Completable-)
+- @size[0.5em](Additional nice to have - Ability to validate that our UseCases are acting on the correct threads especially when we start chaining them)
 
 +++
 
-@size[0.4em](This means in the end we create 3 different types of `UseCases`:)
-@size[0.4em]( - SingleUseCase)
-@size[0.4em]( - CompletableUseCase)
-@size[0.4em]( - Flowable/ObservableUseCase)
+@size[0.5em](This means in the end we create 3 different types of `UseCases`:)
+- @size[0.5em](SingleUseCase)
+- @size[0.5em](CompletableUseCase)
+- @size[0.5em](Flowable/ObservableUseCase)
+
 
 ---
 
@@ -49,7 +50,7 @@ abstract class UseCase {
 ---
 
 #### The Single UseCase
-@size[0.4em](This is an example of an use case without parameters:)
+@size[0.5em](This is an example of an use case without parameters:)
 
 ```kotlin
 /**
@@ -90,10 +91,10 @@ abstract class SingleUseCase<out T> : UseCase() {
 ---
 
 #### The Observable/Flowable UseCase
-@size[0.4em](Once you see the structure of the UseCases they will all feel very familiar. The only difference is mapping it to the correct observable type.)
+@size[0.5em](Once you see the structure of the UseCases they will all feel very familiar. The only difference is mapping it to the correct observable type.)
 +++
 
-@size[0.4em](Here is an example of an UseCase with parameters:)
+@size[0.5em](Here is an example of an UseCase with parameters:)
 
 ```kotlin
 /**
@@ -136,15 +137,15 @@ abstract class FlowableParameterisedUseCase<out T, in P> : UseCase() {
 ---
 
 #### Example implementation
-@size[0.4em](Imagine the following scenario:)
-@size[0.4em](- We have a Packaging company)
-@size[0.4em](- In order for us to send a package we need to do 2 things)
-@size[0.4em](   - We need to get the shipping information of the company we are sending to via a companyId)
-@size[0.4em](   - We need to update our records with that address and mark the package as ReadyToSend)
+@size[0.5em](Imagine the following scenario:)
+- @size[0.5em](We have a Packaging company)
+- @size[0.5em](In order for us to send a package we need to do 2 things)
+  - @size[0.5em](We need to get the shipping information of the company we are sending to via a companyId)
+  - @size[0.5em](We need to update our records with that address and mark the package as ReadyToSend)
 )
 +++
 
-@size[0.4em](Here is an example of how such a UseCase could look:)
+@size[0.5em](Here is an example of how such a UseCase could look:)
 
 ```kotlin
 class PrepareShipPackageToCompanyUseCase @Inject internal constructor(private val getCompanyInfoUseCase: GetCompanyInfoUseCase, 
@@ -168,4 +169,4 @@ class PrepareShipPackageToCompanyUseCase @Inject internal constructor(private va
 ---
 
 #### Summary
-@size[0.4em](Of course in the real world there is a lot of ways this can be used and adapted for your needs. Thanks for reading. Hope you enjoyed it.)
+@size[0.5em](Of course in the real world there is a lot of ways this can be used and adapted for your needs. Thanks for reading. Hope you enjoyed it.)
