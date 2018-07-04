@@ -4,13 +4,13 @@
 
 ### Introduction
 
-A lot of the projects that we develop for Android make use of the architecture defined in this awesome article by
-[Fernando Cejas](https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/)
+@size[0.6em](A lot of the projects that we develop for Android make use of the architecture defined in this awesome article by
+[Fernando Cejas](https://fernandocejas.com/2015/07/18/architecting-android-the-evolution/))
 
-He recently also wrote an updated arcticle demostrating using some of the newer components such as Kotlin Coroutines instead of RxJava/RxKotlin 
-[here](https://fernandocejas.com/2018/05/07/architecting-android-reloaded/)
+@size[0.6em](He recently also wrote an updated arcticle demostrating using some of the newer components such as Kotlin Coroutines instead of RxJava/RxKotlin 
+[here](https://fernandocejas.com/2018/05/07/architecting-android-reloaded/))
 
-This article will discuss the `UseCase` section and changes we introduced to it to improve our interaction with it using RxKotlin/RxJava
+@size[0.6em](This article will discuss the `UseCase` section and changes we introduced to it to improve our interaction with it using RxKotlin/RxJava)
 
 ---
 
