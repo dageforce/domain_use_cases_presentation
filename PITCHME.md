@@ -1,5 +1,7 @@
 # Cool Clean Architecute Usecases!
 
+---
+
 ### Introduction
 
 A lot of the projects that we develop for Android make use of the architecture defined in this awesome article by
@@ -9,6 +11,8 @@ He recently also wrote an updated arcticle demostrating using some of the newer 
 [here](https://fernandocejas.com/2018/05/07/architecting-android-reloaded/)
 
 This article will discuss the `UseCase` section and changes we introduced to it to improve our interaction with it using RxKotlin/RxJava
+
+---
 
 ### Basics of the UseCase
 
@@ -20,10 +24,14 @@ Some of the things we would like to accomplish with our `UseCase` class:
 - Clearly indicate the intented outcome of the UseCase - will there be a multiple outcomes (Flowable/Observable), a single outcome (Single) or we simply want to know if the action was completed or not (Completable)
 - Additional nice to have - Ability to validate that our UseCases are acting on the correct threads (especially when we start chaining them)
 
++++
+
 This means in the end we create 3 different types of `UseCases`:
 - SingleUseCase 
 - CompletableUseCase
 - Flowable/ObservableUseCase  
+
+---
 
 ### The Abstract UseCase
 ```kotlin
@@ -40,6 +48,8 @@ abstract class UseCase {
 }
 ```
 @[2-3] (Main purpose of this class is to allow us to attach any transformers on our observable that we are interested in. In most cases this wll be the threads to observe/schedule on and possibly a transformer for debugging the observables)
+
+---
 
 ### The Single UseCase
 This is an example of an use case without parameters:
@@ -81,9 +91,14 @@ abstract class SingleUseCase<out T> : UseCase() {
 @[10] (get ensures we add the transformers to the call that we are interested in)
 @[14] (chain allows us to ignore the transformers and only apply them when the UseCase that uses this finally calls get())
 
+---
+
 ### The Observable/Flowable UseCase
 
 Once you see the structure of the UseCases they will all feel very familiar. The only difference is mapping it to the correct observable type.
+
++++
+
 Here is an example of an UseCase with parameters:
 
 ```kotlin
@@ -125,6 +140,8 @@ abstract class FlowableParameterisedUseCase<out T, in P> : UseCase() {
 }
 ```
 
+---
+
 ### Example implementation
 
 Imagine the following scenario:
@@ -132,6 +149,8 @@ Imagine the following scenario:
 - In order for us to send a package we need to do 2 things
   - We need to get the shipping information of the company we are sending to via a companyId
   - We need to update our records with that address and mark the package as ReadyToSend
+
++++
 
 Here is an example of how such a UseCase could look:
 
@@ -153,6 +172,7 @@ class PrepareShipPackageToCompanyUseCase @Inject internal constructor(private va
             getCompanyInfoUseCase.chain()
 }
 ```
+---
 
 ### Summary
 
