@@ -45,7 +45,7 @@ abstract class UseCase {
     ...
 }
 ```
-@[2-3] (Main purpose of this class is to allow us to attach any transformers on our observable that we are interested in. 
+@[1] (Main purpose of this class is to allow us to attach any transformers on our observable that we are interested in. 
 @[2-3] (In most cases this wll be the threads to observe/schedule on and possibly a transformer for debugging the observables)
 ---
 
@@ -142,7 +142,6 @@ abstract class FlowableParameterisedUseCase<out T, in P> : UseCase() {
 - @size[0.5em](In order for us to send a package we need to do 2 things)
   - @size[0.5em](We need to get the shipping information of the company we are sending to via a companyId)
   - @size[0.5em](We need to update our records with that address and mark the package as ReadyToSend)
-)
 +++
 
 @size[0.5em](Here is an example of how such a UseCase could look:)
@@ -165,7 +164,6 @@ class PrepareShipPackageToCompanyUseCase @Inject internal constructor(private va
             getCompanyInfoUseCase.chain()
 }
 ```
-)
 ---
 
 #### Summary
